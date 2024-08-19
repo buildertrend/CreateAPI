@@ -24,6 +24,8 @@ jobs:
         with:
           workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
           service_account: ${{ secrets.SERVICE_ACCOUNT }}
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
       - name: Run Docker generator
         uses: RafikFarhad/push-to-gcr-github-action@v5-rc1
         with:
