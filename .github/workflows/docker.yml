@@ -33,6 +33,3 @@ jobs:
           project_id: ${{ secrets.PROJECT_ID }}
           image_name: swift-create-api
           image_tag: ${{ github.sha }}, latest
-          dockerfile: Dockerfile
-          context: ./
-          target: build
