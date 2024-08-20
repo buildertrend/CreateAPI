@@ -26,8 +26,8 @@ jobs:
           service_account: ${{ secrets.SERVICE_ACCOUNT }}
       - name: Congigure google cloud
         run: ./Scripts/setup-gcloud-auth-helper.sh
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
+      # - name: Setup tmate session
+      #   uses: mxschmitt/action-tmate@v3
       - name: Run Docker generator
         uses: RafikFarhad/push-to-gcr-github-action@v5-rc1
         with:
