@@ -32,6 +32,6 @@ jobs:
         uses: RafikFarhad/push-to-gcr-github-action@v5-rc1
         with:
           registry: us-docker.pkg.dev
-          project_id: ${{ secrets.PROJECT_ID }}
-          image_name: swift-api-generator
+          project_id: ${{ secrets.PROJECT_ID }}/api-prod-repodocker-us
+          image_name: swift-create-api
           image_tag: ${{ github.sha }}, latest
