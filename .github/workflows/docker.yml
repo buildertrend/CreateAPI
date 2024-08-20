@@ -27,7 +27,7 @@ jobs:
       # - name: Setup tmate session
       #   uses: mxschmitt/action-tmate@v3
       - name: Congigure google cloud
-         run: ./Scripts/setup-gcloud-auth-helper.sh
+        run: ./Scripts/setup-gcloud-auth-helper.sh
       - name: Run Docker generator
         uses: RafikFarhad/push-to-gcr-github-action@v5-rc1
         with:
