@@ -33,5 +33,5 @@ jobs:
         with:
           registry: us-docker.pkg.dev
           project_id: ${{ secrets.PROJECT_ID }}
-          image_name: api-prod-repodocker-us
+          image_name: swift-api-generator
           image_tag: ${{ github.sha }}, latest
