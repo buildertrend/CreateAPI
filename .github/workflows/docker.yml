@@ -31,7 +31,7 @@ jobs:
       - name: Run Docker generator
         uses: RafikFarhad/push-to-gcr-github-action@v5-rc1
         with:
-          registry: docker.pkg.dev
+          registry: us-east1-docker.pkg.dev
           project_id: ${{ secrets.PROJECT_ID }}
           image_name: swift-create-api
           image_tag: ${{ github.sha }}, latest
