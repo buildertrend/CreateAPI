@@ -31,7 +31,7 @@ jobs:
       - name: Run Docker generator
         uses: RafikFarhad/push-to-gcr-github-action@v5-rc1
         with:
-          registry: us.docker.pkg.dev
+          registry: us-docker.pkg.dev
           project_id: ${{ secrets.PROJECT_ID }}
           image_name: api-prod-repodocker-us
           image_tag: ${{ github.sha }}, latest
