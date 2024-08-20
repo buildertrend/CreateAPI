@@ -1,0 +1,37 @@
+# https://github.com/marketplace/actions/push-to-gcr-github-action
+# https://github.com/google-github-actions/auth
+
+name: "Create Docker Image"
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  generate-docker:
+    name: Create and Push Docker Image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    steps:
+      - uses: actions/checkout@v3
+      - id: 'auth'
+        name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v2'
+        with:
+          workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.SERVICE_ACCOUNT }}
+      - name: Congigure google cloud
+        run: ./Scripts/setup-gcloud-auth-helper.sh
+      # - name: Setup tmate session
+      #   uses: mxschmitt/action-tmate@v3
+      - name: Run Docker generator
+        uses: RafikFarhad/push-to-gcr-github-action@v5-rc1
+        with:
+          registry: us-docker.pkg.dev
+          project_id: ${{ secrets.PROJECT_ID }}/api-prod-repodocker-us
+          image_name: swift-create-api
+          image_tag: ${{ github.sha }}, latest
